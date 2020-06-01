@@ -1,14 +1,15 @@
 import React from "react";
-import { useAuth0 } from "../react-auth0-spa";
+import { useAuth0 } from "authentication/react-auth0-spa";
 import { Link } from "react-router-dom";
+import Login from 'components/pages/Login'
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, logout } = useAuth0();
 
   return (
     <div>
       {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>Log in</button>
+          <Login />
       )}
 
       {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
@@ -17,7 +18,7 @@ const NavBar = () => {
         <Link to="/">Home</Link>&nbsp;
         <Link to="/profile">Profile</Link>
         <Link to="/decks">Study</Link>
-        <Link to="/external-api">External API</Link>
+        <Link to="/add-question">Add Question</Link>
       </span>
     )}
     </div>

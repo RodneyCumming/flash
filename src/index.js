@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Auth0Provider } from "./react-auth0-spa";
-import config from "./auth_config.json";
+import { Auth0Provider } from "authentication/react-auth0-spa";
+import config from "authentication/auth_config.json";
 import history from "./utils/history";
 // import Home from "Components/Pages/Home";
 import App from "components/App";
 import "styles/sanitize.css";
 import "styles/globalStyles.css";
+import StoreProvider from 'state/store'
 
 // A function that routes the user to the right place
 // after login
@@ -26,7 +27,9 @@ ReactDOM.render(
     audience={config.audience}
     onRedirectCallback={onRedirectCallback}
   >
-    <App />
+    <StoreProvider>
+      <App />
+    </StoreProvider>
   </Auth0Provider>,
   document.getElementById("root")
 );
