@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { useAuth0 } from "authentication/react-auth0-spa";
+import * as Styled from "./Profile.styled";
 
 const Profile = () => {
   const { loading, user } = useAuth0();
@@ -9,13 +10,11 @@ const Profile = () => {
   }
 
   return (
-    <Fragment>
-      <img src={user.picture} alt="Profile" />
-
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <code>{JSON.stringify(user, null, 2)}</code>
-    </Fragment>
+    <Styled.Profile>
+      <Styled.ProfilePicture src={user.picture} alt="Profile" height={170}/>
+      <Styled.UserName>{user.name}</Styled.UserName>
+      <Styled.Email>{user.email}</Styled.Email>
+    </Styled.Profile>
   );
 };
 

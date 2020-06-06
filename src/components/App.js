@@ -1,46 +1,102 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import NavBar from "components/common/NavBar";
 import { Router, Route, Switch } from "react-router-dom";
 import history from "utils/history";
 import PrivateRoute from "components/routes/PrivateRoute";
 import { StoreContext } from "state/store";
-import { getUserCards } from 'services'
+import { getUserCards } from "services";
 import { useAuth0 } from "authentication/react-auth0-spa";
+import styled from "styled-components";
 
 // Routes
 import Profile from "components/pages/Profile";
 import Cards from "components/pages/Cards";
+import EditCards from "components/pages/EditCards";
 import AddCard from "components/pages/AddCard";
+import EditCardPopup from "components/pages/EditCardPopup";
 import Home from "components/pages/Home";
 
+const Wrapper = styled.div`
+  background: #102438;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+`;
+
 const App = () => {
-  const {setCards} = useContext(StoreContext);
+  const { setCards } = useContext(StoreContext);
   const { user, getTokenSilently } = useAuth0();
 
   useEffect(() => {
     if (user) {
       (async () => {
-        const fetchedCards = await getUserCards(user, getTokenSilently)
+        const fetchedCards = await getUserCards(user, getTokenSilently);
         setCards(fetchedCards);
-      })()
+      })();
     }
-
   }, [user, getUserCards]);
 
+  // Add Card Popup
+  const [addCardPopup, setAddCardPopup] = useState(false);
+  const [editCardPopup, setEditCardPopup] = useState(false);
+  const [editCard, setEditCard] = useState({});
+  const addCardWrapperRef = useRef();
+  const editCardWrapperRef = useRef();
+  
+  const closePopups = (event, hardToggle) => {
+    if (hardToggle || event.target === addCardWrapperRef.current) {
+      setAddCardPopup(false);
+    }
+    if (hardToggle || event.target === editCardWrapperRef.current) {
+      setEditCardPopup(false);
+    }
+  };
+
+  const openAddCardPopup = () => {
+    setAddCardPopup(true);
+  };
+
+  const handleSetEditCard = (card) => {
+    console.log("editcard", editCard);
+    setEditCard(card);
+    setEditCardPopup(!addCardPopup);
+  };
+
   return (
-      <Router history={history}>
+    <Router history={history}>
+      <Wrapper>
         <header>
-          <NavBar />
+          <NavBar openAddCardPopup={openAddCardPopup} />
         </header>
         <Switch>
           <Route path="/" exact component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/decks" component={Cards} />
-          <PrivateRoute path="/add-question" component={AddCard} />
+          <PrivateRoute path="/cards" component={Cards} />
+          <PrivateRoute
+            path="/edit-cards"
+            render={() => <EditCards handleSetEditCard={handleSetEditCard} />}
+          />
+          {/* <PrivateRoute path="/add-question" component={AddCard} /> */}
         </Switch>
-      </Router>
+        {addCardPopup && (
+          <AddCard
+            closePopups={closePopups}
+            addCardWrapperRef={addCardWrapperRef}
+          />
+        )}
+        {editCardPopup && (
+          <EditCardPopup
+            closePopups={closePopups}
+            editCardWrapperRef={editCardWrapperRef}
+            editCard={editCard}
+          />
+        )}
+      </Wrapper>
+    </Router>
   );
-}
+};
 
 export default App;
 

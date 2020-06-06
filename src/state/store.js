@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 // StoreProvider
 export default ({ children }) => {
  const [profile, setProfileState] = useState({});
- const [cards, setCardsState] = useState({});
+ const [cards, setCardsState] = useState([]);
  
 
  const setProfile = profileObject =>

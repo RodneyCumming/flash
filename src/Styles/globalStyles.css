@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
 blockquote,
 body,
 button,
@@ -19,9 +22,22 @@ ul {
 }
 
 h1 {
-  font-family: HelveticaNeueCondensedBold;
 }
 
 button {
   border: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Work Sans', serif;
+}
+
+button {
+  text-decoration: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
 }

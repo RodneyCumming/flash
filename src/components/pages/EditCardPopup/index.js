@@ -1,15 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useAuth0 } from "authentication/react-auth0-spa";
-import { addCard, refreshUserCards } from "services";
-import * as Styled from "./AddCard.styled";
+import { updateCard, refreshUserCards } from "services";
+import * as Styled from "./EditCardPopup.styled";
 import { StoreContext } from "state/store";
 
-const AddCard = (props) => {
+const EditCardPopup = (props) => {
   const { loading, user, getTokenSilently } = useAuth0();
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const { setCards } = useContext(StoreContext);
-  const { closePopups, addCardWrapperRef } = props;
+  const { closePopups, editCardWrapperRef, editCard } = props;
 
   const handleChange = (event, setter) => {
     setter(event.target.value);
@@ -17,16 +17,21 @@ const AddCard = (props) => {
 
   const handleSubmit = async () => {
     console.log("handleSubmit");
-    const newCard = {
+    const updatedCard = {
       question: question,
       answer: answer,
       userId: user.sub,
       score: 0,
     };
-    await addCard(getTokenSilently, newCard);
+    await updateCard(getTokenSilently, updatedCard, editCard._id);
     closePopups('',true);
     refreshUserCards(user, getTokenSilently, setCards);
   };
+
+  useEffect(() => {
+      setQuestion(editCard.question)
+      setAnswer(editCard.answer)
+  }, [])
 
   if (loading || !user) {
     return <div>Loading...</div>;
@@ -37,7 +42,7 @@ const AddCard = (props) => {
   return (
     <Styled.AddCardWrapper
       onClick={(e) => closePopups(e)}
-      ref={addCardWrapperRef}
+      ref={editCardWrapperRef}
     >
       <Styled.AddCard>
         <Styled.Form>
@@ -46,22 +51,20 @@ const AddCard = (props) => {
             type="text"
             value={question}
             onChange={event => handleChange(event, setQuestion)}
-            placeholder={'// Add Question Here: \n\n e.g. Remove duplicates from arr (set method)'}
           />
           {/* <Styled.Label>Answer</Styled.Label> */}
           <Styled.AnswerInput
             type="text"
             value={answer}
             onChange={event => handleChange(event, setAnswer)}
-            placeholder={'// Add Answer Here: \n\n e.g. [...new Set(arr)])'}
           />
         </Styled.Form>
         <Styled.AddButton onClick={() => handleSubmit()}>
-          ADD CARD
+          UPDATE CARD
         </Styled.AddButton>
       </Styled.AddCard>
     </Styled.AddCardWrapper>
   );
 };
 
-export default AddCard;
+export default EditCardPopup;

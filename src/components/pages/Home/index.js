@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { useAuth0 } from "authentication/react-auth0-spa";
 import { StoreContext } from "state/store";
+import * as Styled from './Home.styled';
 
 const Home = () => {
 
@@ -12,13 +13,10 @@ const Home = () => {
   }
 
   return (
-    <Fragment>
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <h3>All Users Cards</h3>
-      <button onClick={() => console.log(cards)}>Cards????</button>
-      <code>{JSON.stringify(cards, null, 2)}</code>
-    </Fragment>
+    <Styled.Home>
+      <Styled.Heading>FLASH CARDS</Styled.Heading>
+      <Styled.Link to="/cards">START NOW</Styled.Link>
+    </Styled.Home>
   );
 };
 
