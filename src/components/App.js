@@ -17,7 +17,7 @@ import EditCardPopup from "components/pages/EditCardPopup";
 import Home from "components/pages/Home";
 
 const Wrapper = styled.div`
-  background: #102438;
+  background: #332E67;
   color: white;
   display: flex;
   flex-direction: column;
@@ -77,6 +77,10 @@ const App = () => {
           <PrivateRoute
             path="/edit-cards"
             render={() => <EditCards handleSetEditCard={handleSetEditCard} />}
+          />
+          <PrivateRoute
+            path="/add-cards"
+            render={() => <AddCard />}
           />
           {/* <PrivateRoute path="/add-question" component={AddCard} /> */}
         </Switch>

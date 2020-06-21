@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import * as Styled from "./Cards.styled";
 import { useAuth0 } from "authentication/react-auth0-spa";
 import { StoreContext } from "state/store";
+import Editor from "./Editor";
 
 const Cards = () => {
   const { cards } = useContext(StoreContext);
@@ -9,11 +10,13 @@ const Cards = () => {
   const [fetchedCards, setFetchedCards] = useState([]);
   // This could also be moved to global context state
   const { loading, user } = useAuth0();
+  const [value, setValue] = useState("");
 
   // question/answer state
-  const [drillActive, setDrillActive] = useState(true);
   const [activeCardNum, setActiveCardNum] = useState(0);
   const [input, setInput] = useState("");
+  const [correctAnswer, setCorrectAnswer] = useState(false);
+  const [incorrectAnswer, setIncorrectAnswer] = useState(false);
 
   useEffect(() => {
     setFetchedCards(cards);
@@ -25,48 +28,85 @@ const Cards = () => {
 
   const reset = () => {
     setActiveCardNum(0);
-    setDrillActive(false);
     setInput("");
   };
 
   const correct = () =>
-    fetchedCards[activeCardNum].answer === input;
-  
-     
+    fetchedCards[activeCardNum].answer.toLowerCase().trim() ===
+    input.toLowerCase().trim();
 
   const submit = () => {
     if (correct()) {
-      alert('correct');
+      setCorrectAnswer("correct");
+      setIncorrectAnswer(false);
       if (fetchedCards[activeCardNum + 1]) {
         setActiveCardNum(activeCardNum + 1);
         setInput("");
       } else {
+        // Todo: go to completed page
+        // Show stats on cards completed
         reset();
       }
     } else {
-      alert(`incorrect ${fetchedCards[activeCardNum].answer}`);
+      console.log("incorrect");
+      setCorrectAnswer("incorrect");
+      setIncorrectAnswer(true);
     }
   };
 
   return (
     <Styled.Cards className="App">
-      <Styled.QuestionBox>
-        <p>{`${fetchedCards && fetchedCards[activeCardNum] && fetchedCards[activeCardNum].question}`}</p>
-      </Styled.QuestionBox>
-      
-      <Styled.AnswerBox>
-        <Styled.Input
+      <Styled.WidthWrapper>
+        <Styled.TopControlBar></Styled.TopControlBar>
+        <Styled.CardsContainer>
+          <Styled.QuestionBox>
+            {fetchedCards &&
+              fetchedCards[activeCardNum] &&
+              fetchedCards[activeCardNum].question
+                .split(" ")
+                .map((v) =>
+                  v === "arr" ? <Styled.Word textColour={'#ca5959'}> {v}</Styled.Word> : <Styled.Word> {v}</Styled.Word>
+                )}
+          </Styled.QuestionBox>
+
+          {/* Box Bottom Right */}
+
+          <Styled.AnswerBox
+            correctAnswer={correctAnswer}
+            onAnimationEnd={() => setCorrectAnswer(false)}
+            incorrectAnswer={incorrectAnswer}
+          >
+            {/* <Styled.Input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-        />
-        <Styled.Submit onClick={() => submit(input)}>SUBMIT</Styled.Submit>
-      </Styled.AnswerBox>
-      <Styled.ConsoleBox>
-        <button onClick={() => setDrillActive(!drillActive)}>
-          Start/End Drill
-        </button>
-      </Styled.ConsoleBox>
+        /> */}
+            <Editor value={input} setValue={setInput} />
+
+            <Styled.CorrectText correctAnswer={correctAnswer}>
+              {correctAnswer === "correct" ? "CORRECT" : "INCORRECT"}
+            </Styled.CorrectText>
+          </Styled.AnswerBox>
+        </Styled.CardsContainer>
+
+        {/* Box Bottom Left */}
+
+        {/* <Styled.ConsoleBox>
+          Console Box
+      </Styled.ConsoleBox> */}
+
+        {/* Box Top Right */}
+        {incorrectAnswer && (
+          <Styled.CorrectAnswerBox>
+            {fetchedCards[activeCardNum].answer}
+          </Styled.CorrectAnswerBox>
+        )}
+
+        <Styled.BottomBar>
+          <Styled.BottomControlBar></Styled.BottomControlBar>
+          <Styled.Submit onClick={() => submit(input)}>CTRL ↵</Styled.Submit>
+        </Styled.BottomBar>
+      </Styled.WidthWrapper>
     </Styled.Cards>
   );
 };
