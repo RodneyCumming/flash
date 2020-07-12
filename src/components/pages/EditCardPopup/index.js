@@ -29,20 +29,18 @@ const EditCardPopup = (props) => {
 
     await updateCard(getTokenSilently, updatedCard, editCard._id);
     refreshUserCards(user, getTokenSilently, setCards);
-    setEditCard(false)
+    setEditCard(false);
   };
 
   useEffect(() => {
-      setQuestion(editCard.question)
-      setAnswer(editCard.answer)
-      setCategory(editCard.category)
-  }, [])
+    setQuestion(editCard.question);
+    setAnswer(editCard.answer);
+    setCategory(editCard.category);
+  }, []);
 
   if (loading || !user) {
     return <div>Loading...</div>;
   }
-
- 
 
   return (
     <Styled.AddCard>
@@ -57,32 +55,34 @@ const EditCardPopup = (props) => {
             <Styled.QuestionInput
               type="text"
               value={question}
-              onChange={event => handleChange(event, setQuestion)}
-              placeholder={'// Add Question Here: \n\n e.g. Remove duplicates from arr (set method)'}
+              onChange={(event) => handleChange(event, setQuestion)}
+              placeholder={
+                "// Add Question Here: \n\n e.g. Remove duplicates from arr (set method)"
+              }
             />
             <Styled.AnswerInput
               type="text"
               value={answer}
-              onChange={event => handleChange(event, setAnswer)}
-              placeholder={'// Add Answer Here: \n\n e.g. [...new Set(arr)])'}
+              onChange={(event) => handleChange(event, setAnswer)}
+              placeholder={"// Add Answer Here: \n\n e.g. [...new Set(arr)])"}
             >
               <Editor value={answer} setValue={setAnswer} />
             </Styled.AnswerInput>
-          
           </Styled.CardsContainer>
         </Styled.Form>
 
         <Styled.BottomBar>
           <Styled.BottomControlBar>
-          <Styled.TextInput placeholder={'Category Name'} value={category} onChange={event => handleChange(event, setCategory)}/>
+            <Styled.TextInput
+              placeholder={"Category Name"}
+              value={category}
+              onChange={(event) => handleChange(event, setCategory)}
+            />
           </Styled.BottomControlBar>
-          <Styled.AddButton onClick={() => handleSubmit()}>
-          +
-        </Styled.AddButton>
-
+          <Styled.AddButton onClick={() => handleSubmit()}>+</Styled.AddButton>
         </Styled.BottomBar>
-        </Styled.WidthWrapper>
-      </Styled.AddCard>
+      </Styled.WidthWrapper>
+    </Styled.AddCard>
   );
 };
 

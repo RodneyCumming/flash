@@ -1,15 +1,15 @@
 // todo: Move this to .env
-const apiUrl = process.env.REACT_APP_API_URL
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const getUserCards = async (user, getTokenSilently) => {
-  console.log('getUserCards - make sure this isnt called too much');
+  console.log("getUserCards - make sure this isnt called too much");
 
   try {
     const token = await getTokenSilently();
     const response = await fetch(`${apiUrl}/cards/user/${user.sub}`, {
       headers: {
-        Authorization: `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     });
     const responseData = await response.json();
     return responseData;
@@ -19,33 +19,33 @@ export const getUserCards = async (user, getTokenSilently) => {
 };
 
 export const addCard = async (getTokenSilently, card) => {
-  console.log('addCard', card);
+  console.log("addCard", card);
   try {
     const token = await getTokenSilently();
     const response = await fetch(`${apiUrl}/cards`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(card)
+      body: JSON.stringify(card),
     });
     const responseData = await response.json();
     return responseData;
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const deleteCard = async (getTokenSilently, cardId) => {
-  console.log('deleteCard', cardId);
+  console.log("deleteCard", cardId);
   try {
     const token = await getTokenSilently();
     const response = await fetch(`${apiUrl}/cards/${cardId}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     });
     const responseData = await response.json();
@@ -53,26 +53,26 @@ export const deleteCard = async (getTokenSilently, cardId) => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const updateCard = async (getTokenSilently, updatedcard, cardId) => {
-  console.log('update card', cardId);
+  console.log("update card", cardId);
   try {
     const token = await getTokenSilently();
     const response = await fetch(`${apiUrl}/cards/${cardId}`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(updatedcard)
+      body: JSON.stringify(updatedcard),
     });
     const responseData = await response.json();
     return responseData;
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const refreshUserCards = async (user, getTokenSilently, setCards) => {
   const cards = await getUserCards(user, getTokenSilently);

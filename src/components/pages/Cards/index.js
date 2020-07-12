@@ -37,7 +37,7 @@ const Cards = () => {
     input.toLowerCase().replace(";", "").trim();
 
   // Todo: refactor this so there is clearly no race condition between reset and updateCard
-  const submit = async giveUp => {
+  const submit = async (giveUp) => {
     let cardScore = activeCard.score;
     if (correctAnswerCheck() && !giveUp) {
       setCorrectAnswer("correct");
@@ -76,25 +76,28 @@ const Cards = () => {
           </Styled.TopButton>
         </Styled.TopControlBar>
         <Styled.CardsContainer>
-        {!incorrectAnswer && (
-          <Styled.QuestionBox>
-            {fetchedCards &&
-              activeCard &&
-              activeCard.question
-                .split(" ")
-                .map((value, index) =>
+          {!incorrectAnswer && (
+            <Styled.QuestionBox>
+              {fetchedCards &&
+                activeCard &&
+                activeCard.question.split(" ").map((value, index) =>
                   value === "arr" ? (
-                    <Styled.Word textColour={"#ca5959"} key={index}> {value}</Styled.Word>
+                    <Styled.Word textColour={"#ca5959"} key={index}>
+                      {" "}
+                      {value}
+                    </Styled.Word>
                   ) : (
                     <Styled.Word key={index}>{value}</Styled.Word>
                   )
                 )}
-          </Styled.QuestionBox>
-        )}
+            </Styled.QuestionBox>
+          )}
 
-        {incorrectAnswer && (
-          <Styled.CorrectAnswerBox>{activeCard.answer}</Styled.CorrectAnswerBox>
-        )}
+          {incorrectAnswer && (
+            <Styled.CorrectAnswerBox>
+              {activeCard.answer}
+            </Styled.CorrectAnswerBox>
+          )}
 
           <Styled.AnswerBox
             correctAnswer={correctAnswer}
@@ -103,12 +106,17 @@ const Cards = () => {
           >
             <Editor value={input} setValue={setInput} />
 
-            <Styled.CorrectTextContainer backgroundColour={correctAnswer === "correct" ? "blue" : "red"} correctAnswer={correctAnswer}>
-              <Styled.CorrectText>{correctAnswer === "correct" ? "CORRECT" : "INCORRECT"}</Styled.CorrectText>
+            <Styled.CorrectTextContainer
+              backgroundColour={correctAnswer === "correct" ? "blue" : "red"}
+              correctAnswer={correctAnswer}
+            >
+              <Styled.CorrectText>
+                {correctAnswer === "correct" ? "CORRECT" : "INCORRECT"}
+              </Styled.CorrectText>
             </Styled.CorrectTextContainer>
           </Styled.AnswerBox>
         </Styled.CardsContainer>
-        
+
         <Styled.BottomBar>
           <Styled.BottomControlBar>
             <Styled.ControlButton active={true} onClick={() => submit(true)}>

@@ -11,7 +11,7 @@ const Profile = () => {
 
   return (
     <Styled.Profile>
-      <Styled.ProfilePicture src={user.picture} alt="Profile" height={170}/>
+      <Styled.ProfilePicture src={user.picture} alt="Profile" height={170} />
       <Styled.UserName>{user.name}</Styled.UserName>
       <Styled.Email>{user.email}</Styled.Email>
     </Styled.Profile>

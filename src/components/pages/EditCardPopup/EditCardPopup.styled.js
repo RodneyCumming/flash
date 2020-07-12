@@ -5,7 +5,6 @@ import screenSize from "styles/mediaQueries";
 export const WidthWrapper = styled(DefaultWidthWrapper)`
   display: flex;
   flex-direction: column;
-  height: 100%;
   overflow: visible;
   width: 100%;
   height: 100%;
@@ -28,7 +27,6 @@ export const Label = styled.label``;
 export const QuestionInput = styled.textarea`
   border: none;
   resize: none;
-
   background: white;
   padding: 40px;
   font-size: 18px;
@@ -55,17 +53,15 @@ export const QuestionInput = styled.textarea`
 export const AnswerInput = styled.div`
   color: white;
   padding: 0;
-  position: relative;
   background: #1e1e1e;
   border-top: 40px solid #1e1e1e;
   border-right: 40px solid #1e1e1e;
   border-bottom: 40px solid #1e1e1e;
+  border-radius: 0 0 20px 20px;
   position: relative;
   width: 100%;
   overflow: auto;
-  border-radius: 0 0 20px 20px;
   min-height: 50%;
-
   resize: none;
 
   :focus {
@@ -82,12 +78,12 @@ export const AnswerInput = styled.div`
 export const AddButton = styled.button`
   color: white;
   font-size: 40px;
+  font-weight: 500;
   text-align: center;
   background: #266cc7;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
-  font-weight: 500;
   width: 100%;
   height: 100%;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08);
@@ -110,6 +106,7 @@ export const TopControlBar = styled.div`
   flex-grow: 0;
   flex-shrink: 0;
   display: flex;
+
   div:last-child {
     margin: 0;
   }
@@ -143,8 +140,8 @@ export const CardsContainer = styled.div`
   border-radius: 20px;
 
   ${screenSize.minDesktop`
-      flex-direction: row;
-      min-height: unset;
+    flex-direction: row;
+    min-height: unset;
   `}
 `;
 
@@ -158,8 +155,8 @@ export const BottomBar = styled.div`
   flex-direction: column;
 
   ${screenSize.minDesktop`
-      flex-direction: row;
-      margin-top: 40px;
+    flex-direction: row;
+    margin-top: 40px;
   `}
 `;
 
@@ -174,11 +171,11 @@ export const BottomControlBar = styled.div`
 
 export const TextInput = styled.input`
   border-radius: 10px;
+  border: none;
   padding: 20px 30px;
   width: 100%;
   font-size: 17px;
   outline: none;
-  border: none;
   height: 70px;
   background: #625d9a;
   color: white;

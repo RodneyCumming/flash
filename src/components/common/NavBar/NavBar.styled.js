@@ -27,9 +27,7 @@ export const NavItemsContainer = styled.div`
 
 export const NavItems = styled.div`
   color: white;
-  display: flex;
   align-items: center;
-
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -52,7 +50,6 @@ export const Link = styled(ReactLink)`
 
 export const HomeButton = styled(ReactLink)`
   margin-right: ${({ leftaligned }) => (leftaligned ? "auto" : "unset")};
-  color: white;
   text-decoration: none;
   padding: 15px 0;
   font-size: 17px;
@@ -77,7 +74,6 @@ export const Logo = styled.img`
 `;
 
 export const DropDownLink = styled.div`
-  background: none;
   margin-right: ${({ leftaligned }) => (leftaligned ? "auto" : "unset")};
   color: white;
   text-decoration: none;
@@ -87,7 +83,7 @@ export const DropDownLink = styled.div`
   background: #332f67;
 
   ${screenSize.minDesktop`
-      padding: 15px 40px;
+    padding: 15px 40px;
   `}
 `;
 
@@ -111,7 +107,6 @@ export const ButtonLink = styled("button")`
   ${screenSize.minDesktop`
     padding: 15px 130px 15px 40px;
   `}
- 
 `;
 
 export const LoginButton = styled(ButtonLink)`

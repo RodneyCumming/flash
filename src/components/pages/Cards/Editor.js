@@ -7,27 +7,27 @@ const options = {
   acceptSuggestionOnCommitCharacter: false,
   acceptSuggestionOnEnter: false,
   minimap: {
-		enabled: false
+    enabled: false,
   },
   wordWrap: "on",
   scrollbar: {
-		useShadows: false,
-		verticalHasArrows: false,
-		horizontalHasArrows: false,
-		horizontalScrollbarSize: 0,
-		verticalScrollbarSize: 0,
-		verticalSliderSize: 0,
-		vertical: 'hidden',
-		horizontal: 'hidden',
-		arrowSize: 0
+    useShadows: false,
+    verticalHasArrows: false,
+    horizontalHasArrows: false,
+    horizontalScrollbarSize: 0,
+    verticalScrollbarSize: 0,
+    verticalSliderSize: 0,
+    vertical: "hidden",
+    horizontal: "hidden",
+    arrowSize: 0,
   },
   quickSuggestions: {
-    "other": false,
-    "comments": false,
-    "strings": false
+    other: false,
+    comments: false,
+    strings: false,
   },
   parameterHints: {
-    enabled: false
+    enabled: false,
   },
   suggest: {
     snippetsPreventQuickSuggestions: false,
@@ -35,12 +35,12 @@ const options = {
   snippetSuggestions: "none",
   hover: {
     enabled: false,
-  }
+  },
 };
 
-const Editor = props => {
-  const {value, setValue} = props;
-  
+const Editor = (props) => {
+  const { value, setValue } = props;
+
   const handleEditorChange = (ev, value) => {
     setValue(value);
   };
@@ -54,6 +54,7 @@ const Editor = props => {
       language="javascript"
       options={options}
     />
-)};
+  );
+};
 
 export default Editor;

@@ -39,11 +39,17 @@ const EditCards = () => {
       <Styled.WidthWrapper>
         {activeCategory && (
           <Styled.BreadCrumbsContainer>
-            <Styled.BreadCrumb onClick={() => clearEditState()} clickable={true}>
+            <Styled.BreadCrumb
+              onClick={() => clearEditState()}
+              clickable={true}
+            >
               ◀ Edit
             </Styled.BreadCrumb>
             {activeCategory && (
-              <Styled.BreadCrumb onClick={() => setEditCard(false)} clickable={!!editCard}>
+              <Styled.BreadCrumb
+                onClick={() => setEditCard(false)}
+                clickable={!!editCard}
+              >
                 ◀ {activeCategory}
               </Styled.BreadCrumb>
             )}

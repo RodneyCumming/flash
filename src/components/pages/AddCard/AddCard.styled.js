@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { WidthWrapper as DefaultWidthWrapper } from "components/ui/CommonStyling";
-import screenSize from 'styles/mediaQueries'
+import screenSize from "styles/mediaQueries";
 
 export const WidthWrapper = styled(DefaultWidthWrapper)`
   display: flex;
@@ -133,7 +133,7 @@ export const CardType = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   flex-grow: 1;
   height: 120px;
@@ -142,8 +142,8 @@ display: flex;
   border-radius: 20px;
 
   ${screenSize.minDesktop`
-      flex-direction: row;
-      min-height: unset;
+    flex-direction: row;
+    min-height: unset;
   `}
 `;
 
@@ -157,8 +157,8 @@ export const BottomBar = styled.div`
   flex-direction: column;
 
   ${screenSize.minDesktop`
-      flex-direction: row;
-      margin-top: 40px;
+    flex-direction: row;
+    margin-top: 40px;
   `}
 `;
 

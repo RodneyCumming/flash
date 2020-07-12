@@ -39,7 +39,6 @@
 
 <!-- - Tidy code -->
 
-
 - Deploy API (Heroku)
 - Deploy Website (Netlify)
 **Deploy MVP**
@@ -53,6 +52,8 @@ v2
 - Form Validations
 - Style auth0 login screen
 - colours file
+- linting
+- check for deadcode
 
 V3
 - Improve drill functionality

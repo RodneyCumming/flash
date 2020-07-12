@@ -4,7 +4,6 @@ import { WidthWrapper as DefaultWidthWrapper } from "components/ui/CommonStyling
 import screenSize from "styles/mediaQueries";
 
 export const WidthWrapper = styled(DefaultWidthWrapper)`
-  display: flex;
   height: 100%;
   overflow: visible;
   display: flex;
@@ -28,8 +27,8 @@ export const Home = styled.div`
 export const Heading = styled.h1`
   color: #d2d1e0;
   font-size: 40px;
-  text-align: center;
   font-weight: 700;
+  text-align: center;
   margin-bottom: 40px;
   padding-top: 3vh;
 
@@ -42,13 +41,13 @@ export const Heading = styled.h1`
 export const Link = styled(ReactLink)`
   color: white;
   font-size: 16px;
+  font-weight: 500;
   text-align: center;
   background: #5eaf63;
   padding: 15px 30px;
   border-radius: 10px;
   margin: 40px auto;
   cursor: pointer;
-  font-weight: 500;
 
   :hover {
     background: #4dab4d;
@@ -77,7 +76,7 @@ export const FlashCardsImage = styled.img`
 
 export const LeftPanel = styled.div`
   text-align: center;
-  
+
   ${screenSize.minDesktop`
     text-align: left;
   `}
