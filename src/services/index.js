@@ -1,5 +1,5 @@
 // todo: Move this to .env
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = process.env.NODE_ENV !== 'production' ? process.env.REACT_APP_PROD_API_URL : process.env.REACT_APP_STAGING_API_URL;
 
 export const getUserCards = async (user, getTokenSilently) => {
   console.log("getUserCards - make sure this isnt called too much");

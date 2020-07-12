@@ -17,14 +17,16 @@
     "react-monaco-editor": "^0.36.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "serve": "^11.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --print-width 80 --no-semi --single-quote --trailing-comma es5 --write src/**/*.js"
+    "prettier": "prettier --print-width 80 --no-semi --single-quote --trailing-comma es5 --write src/**/*.js",
+    "serve": "serve -s build"
   },
   "husky": {
     "hooks": {

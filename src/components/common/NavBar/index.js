@@ -8,7 +8,7 @@ const NavBar = () => {
   const { isAuthenticated, logout } = useAuth0();
 
   return (
-    <Styled.NavBar onClick={() => console.log(process.env.REACT_APP_API_URL)}>
+    <Styled.NavBar>
       <Styled.WidthWrapper>
         <Styled.NavItemsContainer>
           {isAuthenticated && (
