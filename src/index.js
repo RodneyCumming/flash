@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Auth0Provider } from "authentication/react-auth0-spa";
-import config from "authentication/auth_config.json";
+import config from "authentication/auth_config.js";
 import history from "./utils/history";
 // import Home from "Components/Pages/Home";
 import App from "components/App";

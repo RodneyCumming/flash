@@ -1,5 +1,5 @@
 // todo: Move this to .env
-const apiUrl = `http://localhost:3001`
+const apiUrl = process.env.REACT_APP_API_URL
 
 export const getUserCards = async (user, getTokenSilently) => {
   console.log('getUserCards - make sure this isnt called too much');
