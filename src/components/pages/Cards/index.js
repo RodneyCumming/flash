@@ -8,9 +8,7 @@ import Editor from "./Editor";
 
 const Cards = () => {
   const { cards } = useContext(StoreContext);
-  // Fetching Cards State
   const [fetchedCards, setFetchedCards] = useState([]);
-  // This could also be moved to global context state
   const { loading, user, getTokenSilently } = useAuth0();
   const { setCards } = useContext(StoreContext);
 

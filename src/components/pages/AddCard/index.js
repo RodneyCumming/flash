@@ -5,7 +5,7 @@ import * as Styled from "./AddCard.styled";
 import { StoreContext } from "state/store";
 import Editor from "../Cards/Editor";
 
-const AddCard = (props) => {
+const AddCard = () => {
   const { loading, user, getTokenSilently } = useAuth0();
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -40,8 +40,6 @@ const AddCard = (props) => {
     return <div>Loading...</div>;
   }
 
- 
-
   return (
 
       <Styled.AddCard>
@@ -53,15 +51,12 @@ const AddCard = (props) => {
             <Styled.CardType>CLOZE</Styled.CardType>
           </Styled.TopControlBar>
           <Styled.CardsContainer>
-          
-            {/* <Styled.Label>Question</Styled.Label> */}
             <Styled.QuestionInput
               type="text"
               value={question}
               onChange={event => handleChange(event, setQuestion)}
               placeholder={'// Add Question Here: \n\n e.g. Remove duplicates from arr (set method)'}
             />
-            {/* <Styled.Label>Answer</Styled.Label> */}
             <Styled.AnswerInput
               type="text"
               value={answer}

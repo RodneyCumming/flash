@@ -10,8 +10,8 @@ export const WidthWrapper = styled(DefaultWidthWrapper)`
 `;
 
 export const AddCard = styled.div`
-    height: 100%;
-    margin-bottom: 70px;
+  height: 100%;
+  margin-bottom: 70px;
 `;
 
 export const Form = styled.form`
@@ -25,7 +25,6 @@ export const Label = styled.label``;
 export const QuestionInput = styled.textarea`
   border: none;
   resize: none;
-
   background: white;
   padding: 40px;
   font-size: 18px;
@@ -63,7 +62,6 @@ export const AnswerInput = styled.div`
   overflow: auto;
   border-radius: 0 0 20px 20px;
   min-height: 50%;
-
   resize: none;
 
   :focus {

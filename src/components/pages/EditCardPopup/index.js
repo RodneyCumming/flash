@@ -54,15 +54,12 @@ const EditCardPopup = (props) => {
             <Styled.CardType>CLOZE</Styled.CardType>
           </Styled.TopControlBar>
           <Styled.CardsContainer>
-          
-            {/* <Styled.Label>Question</Styled.Label> */}
             <Styled.QuestionInput
               type="text"
               value={question}
               onChange={event => handleChange(event, setQuestion)}
               placeholder={'// Add Question Here: \n\n e.g. Remove duplicates from arr (set method)'}
             />
-            {/* <Styled.Label>Answer</Styled.Label> */}
             <Styled.AnswerInput
               type="text"
               value={answer}

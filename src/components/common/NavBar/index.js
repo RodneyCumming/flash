@@ -4,7 +4,7 @@ import FlashLogo from "images/flash-logo.svg";
 
 import * as Styled from "./NavBar.styled";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const { isAuthenticated, logout } = useAuth0();
 
   return (

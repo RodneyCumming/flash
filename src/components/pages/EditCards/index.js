@@ -15,11 +15,6 @@ const EditCards = () => {
     return <div>Loading...</div>;
   }
 
-  // const handleDeleteCard = async (cardId) => {
-  //   await deleteCard(getTokenSilently, cardId);
-  //   refreshUserCards(user, getTokenSilently, setCards);
-  // };
-
   const clearEditState = () => {
     setActiveCategory(false);
     setEditCard(false);
@@ -82,12 +77,6 @@ const EditCards = () => {
                   <Styled.CardQuestion>{card.question}</Styled.CardQuestion>
                   <Styled.CardAnswer>{card.answer}</Styled.CardAnswer>
                   <Styled.CardScore>{card.score}</Styled.CardScore>
-                  {/* <Styled.IconContainer> */}
-
-                  {/* <Styled.CloseIcon onClick={() => handleDeleteCard(card._id)}>
-                    X
-                  </Styled.CloseIcon> */}
-                  {/* </Styled.IconContainer> */}
                 </Styled.Card>
               ))}
           </Styled.CardWrapper>

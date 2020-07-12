@@ -102,9 +102,6 @@ export const AnswerBox = styled.div`
     position: relative;
     padding: 40px 40px 40px 0;
     overflow: auto;
-    /* border-top: 40px solid #1e1e1e;
-    border-right: 40px solid #1e1e1e;
-    border-bottom: 40px solid #1e1e1e; */
     width: 100%;
     border-radius: 0 0 20px 20px;
     min-height: 50%;

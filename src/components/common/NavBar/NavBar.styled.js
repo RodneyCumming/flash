@@ -116,20 +116,11 @@ export const ButtonLink = styled("button")`
 
 export const LoginButton = styled(ButtonLink)`
   display: block;
-
-  ${"" /* color: white;
-    text-decoration: none;
-    padding: 0 50px;
-    
-    font-size: 17px; */}
   padding: 15px 40px;
   text-align: center;
   color: #ccc;
   background: #4847a4;
-  ${"" /* font-style: oblique;
-    font-weight: 900; */}
-  ${"" /* background: #242052; */}
-    border-radius: 20px;
+  border-radius: 20px;
   margin-left: auto;
 
   :hover {
@@ -168,12 +159,7 @@ export const DropDownColumn = styled.div`
   cursor: pointer;
   overflow: hidden;
 
-  :hover {
-    ${"" /* padding-bottom: 25px; */}
-  }
-
   :hover ${DropDownBox} {
-    ${"" /* background: #191640; */}
     display: block;
   }
 

@@ -83,9 +83,7 @@ export const CardImage = styled.div`
 
 export const CardQuestion = styled.span`
    padding: 20px;
-   ${'' /* border-radius: 20px 0 0 20px; */}
    background: #aaa8bf;
-   ${'' /* flex-grow: 1; */}
    text-align: left;
    flex-basis: 40%;
    display: inline-block;
@@ -95,7 +93,6 @@ export const CardAnswer = styled.span`
    padding: 20px;
    background: #423d79;
    color: white;
-   ${'' /* flex-grow: 1; */}
    text-align: left;
    flex-basis: 40%;
    display: inline-block;
@@ -105,8 +102,6 @@ export const CardScore = styled.span`
    padding: 20px;
    background: #2e2356;
    color: white;
-   ${'' /* flex-grow: 1; */}
-   ${'' /* border-radius: 0 20px 20px 0; */}
    text-align: center;
    flex-basis: 20%;
    display: inline-block;
@@ -114,8 +109,6 @@ export const CardScore = styled.span`
 
 
 export const Card = styled.div`
-    ${'' /* width: 80%; */}
-    ${'' /* margin: 20px 50px; */}
     border-radius: 20px;
     position: relative;
     display: flex;
@@ -142,7 +135,6 @@ export const Card = styled.div`
 
 export const CategoryCard = styled.div`
     width: 100%;
-    ${'' /* margin: 20px 50px; */}
     border-radius: 20px;
     position: relative;
 
@@ -150,7 +142,6 @@ export const CategoryCard = styled.div`
 
     :hover {
         filter: brightness(1.1);
-        ${'' /* background-color: blue; */}
         box-shadow: 0 14px 28px rgba(0,0,0,0.13), 0 10px 10px rgba(0,0,0,0.09);
         cursor: pointer;
     }
@@ -158,8 +149,6 @@ export const CategoryCard = styled.div`
 
 export const BreadCrumbsContainer = styled.div`
     position: absolute;
-    ${'' /* top: -30px; */}
-    ${'' /* margin-right: */}
 `; 
 
 export const BreadCrumb = styled.button`
@@ -184,6 +173,4 @@ export const BreadCrumb = styled.button`
     }
 `; 
 
-export const CardWrapper = styled.div`
-    ${'' /* margin-top: 80px; */}
-`;
+export const CardWrapper = styled.div``;

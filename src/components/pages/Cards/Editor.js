@@ -6,8 +6,6 @@ const options = {
   fontSize: "20px",
   acceptSuggestionOnCommitCharacter: false,
   acceptSuggestionOnEnter: false,
-  // quickSuggestions: false,
-  // snippetSuggestions: false,
   minimap: {
 		enabled: false
   },
@@ -38,23 +36,16 @@ const options = {
   hover: {
     enabled: false,
   }
-  // scrollbar: false
 };
 
 const Editor = props => {
-
-  // value, setValue
-  
   const {value, setValue} = props;
   
   const handleEditorChange = (ev, value) => {
     setValue(value);
   };
 
-
   return (
-
-    
     <ControlledEditor
       theme="vs-dark"
       height="100%"
@@ -63,7 +54,6 @@ const Editor = props => {
       language="javascript"
       options={options}
     />
-
 )};
 
 export default Editor;

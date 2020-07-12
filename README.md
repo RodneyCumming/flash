@@ -35,11 +35,11 @@
   - Nav (Done)
   - Cards (Done)
     - incorrect answer functionality (Done) -->
+<!-- - dotenv -->
+
+<!-- - Tidy code -->
 
 
-- Tidy code
-  - colours file
-- dotenv
 - Deploy API (Heroku)
 - Deploy Website (Netlify)
 **Deploy MVP**
@@ -52,6 +52,7 @@ v2
 - Improve algorithm
 - Form Validations
 - Style auth0 login screen
+- colours file
 
 V3
 - Improve drill functionality
