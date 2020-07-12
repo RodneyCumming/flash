@@ -36,6 +36,7 @@ const EditCardPopup = (props) => {
     setQuestion(editCard.question);
     setAnswer(editCard.answer);
     setCategory(editCard.category);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading || !user) {
