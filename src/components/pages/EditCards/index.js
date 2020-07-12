@@ -1,13 +1,12 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useAuth0 } from "authentication/react-auth0-spa";
 import { StoreContext } from "state/store";
 import * as Styled from "./EditCards.styled";
-import { deleteCard, refreshUserCards } from "services";
 import EditCardPopup from "components/pages/EditCardPopup";
 
-const EditCards = (props) => {
-  const { loading, user, getTokenSilently } = useAuth0();
-  const { cards, setCards } = useContext(StoreContext);
+const EditCards = () => {
+  const { loading, user } = useAuth0();
+  const { cards } = useContext(StoreContext);
   const [activeCategory, setActiveCategory] = useState(false);
 
   const [editCard, setEditCard] = useState(false);
@@ -16,10 +15,10 @@ const EditCards = (props) => {
     return <div>Loading...</div>;
   }
 
-  const handleDeleteCard = async (cardId) => {
-    await deleteCard(getTokenSilently, cardId);
-    refreshUserCards(user, getTokenSilently, setCards);
-  };
+  // const handleDeleteCard = async (cardId) => {
+  //   await deleteCard(getTokenSilently, cardId);
+  //   refreshUserCards(user, getTokenSilently, setCards);
+  // };
 
   const clearEditState = () => {
     setActiveCategory(false);

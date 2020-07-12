@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { WidthWrapper as DefaultWidthWrapper } from 'components/ui/CommonStyling';
 import Hexagons from 'images/hexagons.svg'
+import screenSize from 'styles/mediaQueries'
 
 export const WidthWrapper = styled(DefaultWidthWrapper)`
   display: flex;
   flex-direction: column;
   overflow: visible;
-  ${'' /* margin-top: 40px;
-  margin-bottom: 40px; */}
   height: 100%;
   position: relative;
 `;
@@ -21,11 +20,16 @@ export const EditCards = styled.div`
 
 export const CardsContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));    grid-template-rows: max-content;
+    grid-template-columns: 1fr;  
+    grid-template-rows: max-content;
     grid-gap: 20px;
     ${'' /* padding: 50px; */}
     border-radius: 20px;
     margin-top: 60px;
+
+    ${screenSize.minDesktop`
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  
+    `}
 `; 
 
 
@@ -67,10 +71,14 @@ export const CategoryTitle = styled.p`
 
 export const CardImage = styled.div`
     border-radius: 20px 20px 0 0;
-    height: 120px;
+    height: 80px; 
     background: ${({colour}) => colour ? `${colour}80` : 'grey'};
     background-image: url(${Hexagons});
     filter: brightness(2) contrast(1.1);
+
+    ${screenSize.minDesktop`
+        height: 120px; 
+    `}
 `; 
 
 export const CardQuestion = styled.span`

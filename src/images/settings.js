@@ -4,7 +4,7 @@ export default ({className}) => (
     <svg width={'25px'} height={'25px'} viewBox="0 0 116 116" version="1.1" xmlns="http://www.w3.org/2000/svg" >
     <title>Artboard</title>
     <desc>Created with Sketch.</desc>
-    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Artboard" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Group" transform="translate(4.000000, 12.000000)" >
             <path d="M4,17.25 L63.96875,17.25 L63.96875,17.25 L63.96875,30.1875 L4,30.1875 C1.790861,30.1875 2.705415e-16,28.396639 0,26.1875 L0,21.25 C-2.705415e-16,19.040861 1.790861,17.25 4,17.25 Z" id="Rectangle"></path>
             <path d="M56.3892045,62.53125 L103.420455,62.53125 C105.629594,62.53125 107.420455,64.322111 107.420455,66.53125 L107.420455,71.46875 C107.420455,73.677889 105.629594,75.46875 103.420455,75.46875 L56.3892045,75.46875 L56.3892045,75.46875 L56.3892045,62.53125 Z" id="Rectangle-Copy"></path>

@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-
-import MonacoEditor from "@monaco-editor/react";
+import React from "react";
 
 import { ControlledEditor } from "@monaco-editor/react";
-
 
 const options = {
   fontSize: "20px",
@@ -14,7 +10,8 @@ const options = {
   // snippetSuggestions: false,
   minimap: {
 		enabled: false
-	},
+  },
+  wordWrap: "on",
   scrollbar: {
 		useShadows: false,
 		verticalHasArrows: false,

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link as ReactLink } from "react-router-dom";
 
 export const Profile = styled.div`
     height: 100%;
@@ -21,4 +20,3 @@ export const UserName = styled.h4`
 export const Email = styled.h4`
     margin: 20px 0;
 `; 
-

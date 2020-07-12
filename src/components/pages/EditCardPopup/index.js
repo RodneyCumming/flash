@@ -45,28 +45,6 @@ const EditCardPopup = (props) => {
  
 
   return (
-    // <Styled.AddCardWrapper
-    // >
-    //   <Styled.AddCard>
-    //     <Styled.Form>
-    //       {/* <Styled.Label>Question</Styled.Label> */}
-    //       <Styled.QuestionInput
-    //         type="text"
-    //         value={question}
-    //         onChange={event => handleChange(event, setQuestion)}
-    //       />
-    //       {/* <Styled.Label>Answer</Styled.Label> */}
-    //       <Styled.AnswerInput
-    //         type="text"
-    //         value={answer}
-    //         onChange={event => handleChange(event, setAnswer)}
-    //       />
-    //     </Styled.Form>
-    //     <Styled.AddButton onClick={() => handleSubmit()}>
-    //       UPDATE CARD
-    //     </Styled.AddButton>
-    //   </Styled.AddCard>
-    // </Styled.AddCardWrapper>
     <Styled.AddCard>
       <Styled.WidthWrapper>
         <Styled.Form>

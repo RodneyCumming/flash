@@ -15,14 +15,20 @@ import EditCards from "components/pages/EditCards";
 import AddCard from "components/pages/AddCard";
 import EditCardPopup from "components/pages/EditCardPopup";
 import Home from "components/pages/Home";
+import screenSize from 'styles/mediaQueries'
 
 const Wrapper = styled.div`
   background: #332E67;
   color: white;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
+
+  ${screenSize.minDesktop`
+    height: 100vh;
+  `}
+
 `;
 
 const App = () => {

@@ -1,5 +1,6 @@
 import styled, { keyframes, css } from 'styled-components';
 import { WidthWrapper as DefaultWidthWrapper } from 'components/ui/CommonStyling';
+import screenSize from 'styles/mediaQueries';
 
 export const WidthWrapper = styled(DefaultWidthWrapper)`
   display: flex;
@@ -9,34 +10,33 @@ export const WidthWrapper = styled(DefaultWidthWrapper)`
 `;
 
 export const Cards = styled.div`
-    ${'' /* display: grid;
-    grid-template-columns: 36% 64%;
-    grid-template-rows: 3fr 2fr;
-    height: 100%; */}
     background: #332E67;
     height: 100%;
     margin: 0 0 70px;
     display: flex;
     justify-content: center;
     align-items: center;
-    ${'' /* border-radius: 20px; */}
-    ${'' /* padding: 70px 0; */}
 `; 
 
 
 export const QuestionBox = styled.div`
     padding: 40px;
-    ${'' /* border: 40px solid #cac8ea */}
-    font-size: 18px;
-
-    width: 50%;
-    border-radius: 20px 0 0 20px;
     background: #BBBADF;
     color: #302f31;
     font-weight: 500;
     font-size: 20px;
-
     box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.08);
+    border: none;
+    resize: none;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    min-height: 50%;
+
+    ${screenSize.minDesktop`
+      min-height: unset;
+      width: 50%;
+      border-radius: 20px 0 0 20px;
+    `}
 `; 
 
 
@@ -49,8 +49,19 @@ export const ConsoleBox = styled.div`
 `; 
 
 export const CorrectAnswerBox = styled.div`
-    padding: 40px;
     font-size: 18px;
+    padding: 40px;
+    background: #262531;
+    position: relative; 
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    min-height: 50%;
+
+    ${screenSize.minDesktop`
+      min-height: unset;
+      width: 50%;
+      border-radius: 20px 0 0 20px;
+    `}
 `; 
 
 const flashGreen = keyframes`
@@ -78,7 +89,6 @@ const flashRed = keyframes`
 
   50% {
     background: #a24242;
-    ${'' /* box-shadow: inset 0 0 50px #4a905c; */}
   }
 
   100% {
@@ -89,23 +99,38 @@ const flashRed = keyframes`
 
 export const AnswerBox = styled.div`
     background: #1e1e1e;
-     ${'' /* grid-row: 2; */}
-    ${'' /* grid-column: 2; 
-    grid-row: ${({incorrectAnswer}) => incorrectAnswer ? `1 / span 1` : `1 / span 2`}; */}
-    padding: 0;
     position: relative;
-    width: 50%;
-    border-radius: 0 20px 20px 0;
     padding: 40px 40px 40px 0;
-    background: #1e1e1e;
-    /* padding: 40px 40px 40px 0; */
-    ${'' /* border-top: 60px solid #1e1e1e;
-    border-right: 40px solid #1e1e1e;
-    border-bottom: 40px solid #1e1e1e; */}
-    position: relative;
-    width: 50%;
     overflow: auto;
-    border-radius: 0 20px 20px 0;
+    /* border-top: 40px solid #1e1e1e;
+    border-right: 40px solid #1e1e1e;
+    border-bottom: 40px solid #1e1e1e; */
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    min-height: 50%;
+    resize: none;
+
+    :focus {
+      outline: none;
+    }
+
+    ${screenSize.minDesktop`
+      min-height: unset;
+      width: 50%;
+      border-radius: 0 20px 20px 0;
+    `}
+`; 
+
+export const CorrectTextContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    display: ${({correctAnswer}) => correctAnswer === false ? 'none' : 'flex'};
 
     ${({correctAnswer}) => correctAnswer && correctAnswer === 'correct' && css`
         animation: ${flashGreen} 1s linear;
@@ -114,19 +139,12 @@ export const AnswerBox = styled.div`
     ${({correctAnswer}) => correctAnswer && correctAnswer === 'incorrect' && css`
         animation: ${flashRed} 1s linear;
     `}
+`;
 
-`; 
-
-export const CorrectText = styled.div`
-    color: white;
+export const CorrectText = styled.p`
+  color: white;
     font-size: 40px;
-    position: absolute;
     text-align: center;
-    top: 0;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    display: ${({correctAnswer}) => correctAnswer === false ? 'none' : 'block'};
 `;
 
 export const Input = styled.textarea`
@@ -144,66 +162,150 @@ export const Input = styled.textarea`
 `; 
 
 export const Submit = styled.button`
-    ${'' /* position: absolute;
-    right: 40px;
-    bottom: 40px; */}
-    color: white;
-    font-size: 16px;
     text-align: center;
-    background: #4dab4d;
-    padding: 15px 30px;
     border-radius: 10px;
+    padding: 20px 70px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.08); 
+    display: inline-block;
+    margin-right: 0;
     cursor: pointer;
-    font-weight: 500;
-    width: 170px;
-    height: 100%;
+    color: white;
+    font-size: 20px;
+    background: #4dab4d;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 50px;
 
     :hover {
-        background: #4dab4d;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 10px 10px rgba(0, 0, 0, 0.06);
+        background: #48bf4d;
     }
+
+    ${screenSize.minDesktop`
+      width: unset;
+      margin-top: unset;
+      margin-bottom: unset;
+    `}
 `; 
 
 export const CardsContainer = styled.div`
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  
   height: 120px;
-  ${'' /* width: 80%; */}
-  border-radius: 20px;
+  min-height: 400px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.08);
+  border-radius: 20px;
+
+  ${screenSize.minDesktop`
+      flex-direction: row;
+      min-height: unset;
+  `}
 `;
 
 export const TopControlBar = styled.div`
-  height: 60px;
   width: 100%;
-  background: #413c7b;
-  margin: 40px 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
   flex-grow: 0;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: row-reverse;
+
+  div:last-child {
+    margin: 0;
+  }
+
+  ${screenSize.minDesktop`
+    margin-top: 40px;
+    margin-bottom: 40px;
+  `}
+`;
+
+export const CardType = styled.div`
+  background: ${({active}) => active ? `#413c7b` : `#3c3873`};
   border-radius: 10px;
-  ${'' /* opacity: 0; */}
-  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.08);
+  box-shadow: ${({active}) => active && `0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08)`};
+  padding: 20px 70px;
+  display: inline-block;
+  margin-right: 20px;
+  color: ${({active}) => active ? `white` : `#8b86bf`};
+`;
+
+export const TopButton = styled(CardType)`
+  background: ${({active}) => active ? `#413c7b` : `#3c3873`};
+  border-radius: 10px;
+  box-shadow: ${({active}) => active && `0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08)`};
+  padding: 20px 70px;
+  display: inline-block;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 0;
+  font-size: 20px;
+  color: ${({active}) => active ? `white` : `#8b86bf`};
+`;
+
+export const ButtonLabel = styled.p`
+  position: absolute;
+  top: 0px;
+  left: 0;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  color: #9390C2;
 `
+
+export const ControlButton = styled(CardType)`
+  background: ${({active}) => active ? `#413c7b` : `#3c3873`};
+  border-radius: 10px;
+  box-shadow: ${({active}) => active && `0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08)`};
+  padding: 20px 70px;
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 20px;
+  color: ${({active}) => active ? `white` : `#8b86bf`};
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+
+  :hover {
+    background: ${({active}) => active ? `#524d96` : `#3c3873`};
+    cursor: ${({active}) => active ? 'pointer' : `unset`};
+  }
+
+  ${screenSize.minDesktop`
+      width: unset;
+      margin-top: unset;
+      text-align: left;
+  `}
+`;
 
 export const BottomBar = styled.div`
   height: 70px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 0;
   flex-grow: 0;
   flex-shrink: 0;
   border-radius: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  ${screenSize.minDesktop`
+      margin-top: 40px;
+  `}
 `
 
 export const BottomControlBar = styled.div`
-  height: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
-  margin-right: 40px;
-  background: #413c7b;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.08);
+
+  flex-direction: column;
+
+  ${screenSize.minDesktop`
+      flex-direction: row;
+  `}
 `
 
 export const Word = styled.span`

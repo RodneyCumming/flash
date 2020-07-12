@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAuth0 } from "authentication/react-auth0-spa";
 import FlashLogo from "images/flash-logo.svg";
 
@@ -6,11 +6,9 @@ import * as Styled from "./NavBar.styled";
 
 const NavBar = (props) => {
   const { isAuthenticated, logout } = useAuth0();
-  const { loginWithRedirect } = useAuth0();
-  const { openAddCardPopup } = props;
 
   return (
-    <Styled.NavBar>
+    <Styled.NavBar onClick={() => console.log(process.env.REACT_APP_API_URL)}>
       <Styled.WidthWrapper>
         <Styled.NavItemsContainer>
           {isAuthenticated && (

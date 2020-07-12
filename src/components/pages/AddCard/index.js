@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useAuth0 } from "authentication/react-auth0-spa";
 import { addCard, refreshUserCards } from "services";
 import * as Styled from "./AddCard.styled";
