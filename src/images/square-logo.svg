@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="122px" height="122px" viewBox="0 0 122 122" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Square Logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-53.6%" y="-55.7%" width="207.3%" height="211.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.31602382 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-53.6%" y="-55.7%" width="207.3%" height="211.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.31602382 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Square-Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#3A3471" x="0" y="0" width="122" height="122"></rect>
+        <g id="Group-2" filter="url(#filter-1)" transform="translate(8.500000, 34.500000)">
+            <g id="Group">
+                <rect id="Rectangle" fill="#737CC2" x="0.6" y="0" width="16.5" height="53"></rect>
+                <path d="M16.7823767,0 C49.4871363,0 54.6,11.8644541 54.6,26.5 C54.6,41.1355459 48.0779303,53 16.7823767,53 L16.7823767,38.885 L16.9717502,38.8845558 C35.952394,38.7738386 37.9221903,33.2037056 37.9221903,26.3486092 C37.9221903,19.4732281 35.0522846,13.8904262 16.7839629,13.8118232 L16.7823767,0 L16.7823767,0 Z" id="Combined-Shape" fill="#98A1E3"></path>
+            </g>
+        </g>
+        <g id="Group-2-Copy" filter="url(#filter-2)" transform="translate(58.500000, 34.500000)">
+            <g id="Group">
+                <rect id="Rectangle" fill="#8782B9" x="0.6" y="0" width="16.5" height="53"></rect>
+                <path d="M16.7823767,0 C49.4871363,0 54.6,11.8644541 54.6,26.5 C54.6,41.1355459 48.0779303,53 16.7823767,53 L16.7823767,38.885 L16.9717502,38.8845558 C35.952394,38.7738386 37.9221903,33.2037056 37.9221903,26.3486092 C37.9221903,19.4732281 35.0522846,13.8904262 16.7839629,13.8118232 L16.7823767,0 L16.7823767,0 Z" id="Combined-Shape" fill="#B3B0D3"></path>
+            </g>
+        </g>
+    </g>
+</svg>

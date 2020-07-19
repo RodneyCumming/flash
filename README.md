@@ -36,11 +36,10 @@
   - Cards (Done)
     - incorrect answer functionality (Done) -->
 <!-- - dotenv -->
-
 <!-- - Tidy code -->
+<!-- - Deploy Website (Netlify)  -->
 
 - Deploy API (Heroku)
-- Deploy Website (Netlify)
 **Deploy MVP**
 
 v2
