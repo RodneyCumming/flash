@@ -22,7 +22,7 @@ ReactDOM.render(
   <Auth0Provider
     domain={config.domain}
     client_id={config.clientId}
-    redirect_uri={window.location.origin}
+    redirect_uri={'https://devdrill.netlify.app'}
     audience={config.audience}
     onRedirectCallback={onRedirectCallback}
   >
