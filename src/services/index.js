@@ -5,7 +5,7 @@ const apiUrl =
     : process.env.REACT_APP_STAGING_API_URL;
 
 export const getUserCards = async (user, getTokenSilently) => {
-  console.log("getUserCards - make sure this isnt called too much");
+  // console.log("getUserCards - make sure this isnt called too much");
 
   try {
     const token = await getTokenSilently();
@@ -15,14 +15,16 @@ export const getUserCards = async (user, getTokenSilently) => {
       },
     });
     const responseData = await response.json();
+
+    // console.log('responseData', responseData)
     return responseData;
   } catch (error) {
     console.error(error);
   }
-};
+}
 
 export const addCard = async (getTokenSilently, card) => {
-  console.log("addCard", card);
+  // console.log("addCard", card);
   try {
     const token = await getTokenSilently();
     const response = await fetch(`${apiUrl}/cards`, {
@@ -34,6 +36,7 @@ export const addCard = async (getTokenSilently, card) => {
       body: JSON.stringify(card),
     });
     const responseData = await response.json();
+    // console.log('responseData', responseData)
     return responseData;
   } catch (error) {
     console.error(error);
@@ -41,7 +44,7 @@ export const addCard = async (getTokenSilently, card) => {
 };
 
 export const deleteCard = async (getTokenSilently, cardId) => {
-  console.log("deleteCard", cardId);
+  // console.log("deleteCard", cardId);
   try {
     const token = await getTokenSilently();
     const response = await fetch(`${apiUrl}/cards/${cardId}`, {
@@ -59,7 +62,7 @@ export const deleteCard = async (getTokenSilently, cardId) => {
 };
 
 export const updateCard = async (getTokenSilently, updatedcard, cardId) => {
-  console.log("update card", cardId);
+  // console.log("update card", cardId);
   try {
     const token = await getTokenSilently();
     const response = await fetch(`${apiUrl}/cards/${cardId}`, {
