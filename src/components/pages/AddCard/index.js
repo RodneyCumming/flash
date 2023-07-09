@@ -23,7 +23,7 @@ const AddCard = () => {
   };
 
   const handleSubmit = async () => {
-    console.log("handleSubmit");
+    // console.log("handleSubmit");
     const newCard = {
       question: question,
       answer: answer,

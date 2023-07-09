@@ -64,7 +64,7 @@ const App = () => {
   };
 
   const handleSetEditCard = (card) => {
-    console.log("editcard", editCard);
+    // console.log("editcard", editCard);
     setEditCard(card);
     setEditCardPopup(!addCardPopup);
   };

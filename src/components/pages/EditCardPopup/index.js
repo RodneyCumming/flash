@@ -18,7 +18,7 @@ const EditCardPopup = (props) => {
   };
 
   const handleSubmit = async () => {
-    console.log("handleSubmit");
+    // console.log("handleSubmit");
     const updatedCard = {
       question: question,
       answer: answer,

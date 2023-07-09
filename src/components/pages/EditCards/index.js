@@ -56,7 +56,7 @@ const EditCards = () => {
           </Styled.BreadCrumbsContainer>
         )}
 
-        <Styled.CardsContainer onClick={console.log(categories)}>
+        <Styled.CardsContainer >
           {!activeCategory &&
             categories &&
             categories.map((category, index) => (
